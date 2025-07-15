@@ -1,13 +1,15 @@
 <template>
   <div class="chat">
-    <div
-      v-for="(msg, idx) in store.chatHistory"
-      :key="idx"
-      :class="msg.role === 'ai' ? 'msg-ai' : 'msg-user'"
-    >
-      {{ msg.text }}
+    <div class="chat-messages">
+      <div
+        v-for="(msg, idx) in store.chatHistory"
+        :key="idx"
+        :class="msg.role === 'ai' ? 'msg-ai' : 'msg-user'"
+      >
+        {{ msg.text }}
+      </div>
     </div>
-    <form @submit.prevent="onSend">
+    <form class="chat-input" @submit.prevent="onSend">
       <input
         type="text"
         v-model="inputValue"
@@ -44,11 +46,25 @@ function onSend() {
   background: #f9f9ff;
   padding: 1.1rem;
   border-radius: 10px;
-  min-height: 180px;
-  max-height: 320px;
-  overflow-y: auto;
+  min-height: 60vh;
+  max-height: 80vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-size: 1.05rem;
   border: 1px solid #ececff;
+}
+.chat-messages {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.chat-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: auto;
 }
 .msg-ai {
   color: #2d2d5a;
@@ -70,11 +86,7 @@ function onSend() {
   max-width: 85%;
   word-break: break-word;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+/* form styles now in .chat-input */
 input[type="text"] {
   border: 1px solid #d1d5db;
   border-radius: 8px;

@@ -1,6 +1,6 @@
 <template>
   <div class="page-bg">
-    <div class="card">
+    <div :class="['card', { 'card-interview': store.stage === 'interview' }]">
       <LoadingSpinner v-if="store.loading" />
       <ResumeUpload
         v-else-if="store.stage === 'upload'"
@@ -118,6 +118,21 @@ body {
   background: linear-gradient(120deg, #f4f6fb 60%, #e3e3ff 100%);
 }
 .card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px 0 #6c63ff22;
+  padding: 2.8rem 2.2rem 2.2rem 2.2rem;
+  max-width: 480px;
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  border: 1px solid #ececff;
+}
+.card-interview {
+  width: 100%;
+  min-height: 60vh;
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 6px 32px 0 #6c63ff22;
