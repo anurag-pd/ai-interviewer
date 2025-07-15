@@ -102,37 +102,39 @@ Zeero/
 └── .gitignore
 ```
 
-ARCHITECTURE OF THE APP
+## Architecture Diagram
 
-+-------------------+ REST API +-------------------+
-| | <---------------------> | |
-| Vue 3 Frontend | | FastAPI Backend |
-| (Vite, Pinia) | | |
-+-------------------+ +-------------------+
-| |
-| |
-| v
-| +-------------------+
-| | ChromaDB (via |
-| | LangChain) |
-| +-------------------+
-| |
-| v
-| +-------------------+
-| | HuggingFace |
-| | Embeddings |
-| +-------------------+
-|
-v
+```text
++-------------------+         REST API         +-------------------+
+|                   | <---------------------> |                   |
+|   Vue 3 Frontend  |                         |   FastAPI Backend  |
+|  (Vite, Pinia)    |                         |                   |
++-------------------+                         +-------------------+
+        |                                             |
+        |                                             |
+        |                                             v
+        |                                   +-------------------+
+        |                                   |   ChromaDB (via   |
+        |                                   |   LangChain)      |
+        |                                   +-------------------+
+        |                                             |
+        |                                             v
+        |                                   +-------------------+
+        |                                   | HuggingFace       |
+        |                                   | Embeddings        |
+        |                                   +-------------------+
+        |
+        v
 +-------------------+
-| Admin Panel |
-| (Vue Route /admin)|
+|  Admin Panel      |
+|  (Vue Route /admin)|
 +-------------------+
+```
 
-FLOW:
+### Flow
 
-Users interact with the Vue 3 SPA (candidate or admin).
-The frontend communicates with the FastAPI backend via REST API.
-The backend handles resume parsing, skill extraction, and interview logic.
-For question management and retrieval, the backend uses ChromaDB (via LangChain) and HuggingFace Embeddings.
-The admin panel (at /admin) allows question management through the same backend.
+- Users interact with the Vue 3 SPA (candidate or admin).
+- The frontend communicates with the FastAPI backend via REST API.
+- The backend handles resume parsing, skill extraction, and interview logic.
+- For question management and retrieval, the backend uses ChromaDB (via LangChain) and HuggingFace Embeddings.
+- The admin panel (at `/admin`) allows question management through the same backend.
