@@ -88,6 +88,8 @@ This is a full-stack AI-powered technical interview platform. It allows users to
 
 ### 6. Stop the App (Stop backend and frontend)
 
+- Simple way would be to close the Terminals created
+
 - **Windows:**
   ```powershell
   ./stop.ps1
