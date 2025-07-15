@@ -1,8 +1,8 @@
-# Zeero AI Interviewer Assignment
+# AI Interviewer
 
 ## Overview
 
-Zeero is a full-stack AI-powered technical interview platform. It allows users to upload their resume, extracts skills, and conducts an interactive interview with AI-generated questions and follow-ups. Admins can manage the question bank via a modern web interface.
+This is a full-stack AI-powered technical interview platform. It allows users to upload their resume, extracts skills, and conducts an interactive interview with AI-generated questions and follow-ups. Admins can manage the question bank via a modern web interface.
 
 ## Architecture
 
@@ -102,12 +102,37 @@ Zeero/
 └── .gitignore
 ```
 
-## Notes
+ARCHITECTURE OF THE APP
 
-- All configuration and dependencies are included.
-- For assignment submission, include all files except those ignored by `.gitignore`.
-- For any issues, check the logs or contact the author.
++-------------------+ REST API +-------------------+
+| | <---------------------> | |
+| Vue 3 Frontend | | FastAPI Backend |
+| (Vite, Pinia) | | |
++-------------------+ +-------------------+
+| |
+| |
+| v
+| +-------------------+
+| | ChromaDB (via |
+| | LangChain) |
+| +-------------------+
+| |
+| v
+| +-------------------+
+| | HuggingFace |
+| | Embeddings |
+| +-------------------+
+|
+v
++-------------------+
+| Admin Panel |
+| (Vue Route /admin)|
++-------------------+
 
----
+FLOW:
 
-**Good luck with your assignment!**
+Users interact with the Vue 3 SPA (candidate or admin).
+The frontend communicates with the FastAPI backend via REST API.
+The backend handles resume parsing, skill extraction, and interview logic.
+For question management and retrieval, the backend uses ChromaDB (via LangChain) and HuggingFace Embeddings.
+The admin panel (at /admin) allows question management through the same backend.
