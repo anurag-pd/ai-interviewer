@@ -17,6 +17,3 @@
 Make sure the Python backend (Flask API) is running at the same time.
 
 ## Features
-
-Powered by [Lit](https://lit.dev/)
-Powered by [Lit](https://lit.dev/) & [Vite](https://vitejs.dev/)
