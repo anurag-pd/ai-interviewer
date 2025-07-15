@@ -35,7 +35,7 @@ This is a full-stack AI-powered technical interview platform. It allows users to
   - Node.js & npm (for frontend)
   - PowerShell/Bash scripts for setup
 
-## How to Run
+## How to Build and Run
 
 ### 1. Prerequisites
 
@@ -43,21 +43,27 @@ This is a full-stack AI-powered technical interview platform. It allows users to
 - Node.js (v16+ recommended)
 - npm
 
-### 2. Setup & Run (Windows)
+### 2. Setup (Install dependencies)
 
-Open PowerShell in the project root and run:
+- **Windows:**
+  ```powershell
+  ./setup.ps1
+  ```
+- **Linux/macOS:**
+  ```bash
+  bash setup.sh
+  ```
 
-```powershell
-./setup_and_run.ps1
-```
+### 3. Run the App (Start backend and frontend)
 
-### 3. Setup & Run (Linux/macOS)
-
-Open terminal in the project root and run:
-
-```bash
-bash setup_and_run.sh
-```
+- **Windows:**
+  ```powershell
+  ./run.ps1
+  ```
+- **Linux/macOS:**
+  ```bash
+  bash run.sh
+  ```
 
 ### 4. Manual Steps (if needed)
 
@@ -77,8 +83,19 @@ bash setup_and_run.sh
 
 ### 5. Access the App
 
-- Candidate UI: [http://localhost:5173/](http://localhost:5173/)
-- Admin Panel: [http://localhost:5173/admin](http://localhost:5173/admin)
+- Candidate UI: [http://localhost:3000/](http://localhost:3000/)
+- Admin Panel: [http://localhost:3000/admin](http://localhost:3000/admin)
+
+### 6. Stop the App (Stop backend and frontend)
+
+- **Windows:**
+  ```powershell
+  ./stop.ps1
+  ```
+- **Linux/macOS:**
+  ```bash
+  bash stop.sh
+  ```
 
 ## Project Structure
 
@@ -89,8 +106,10 @@ Zeero/
 ├── resume_parser.py      # Resume parsing logic
 ├── followup_generator.py # Follow-up question logic
 ├── requirements.txt      # Python dependencies
-├── setup_and_run.ps1     # Windows setup script
-├── setup_and_run.sh      # Linux/macOS setup script
+├── setup.ps1             # Windows setup script
+├── setup.sh              # Linux/macOS setup script
+├── run.ps1               # Windows run script
+├── run.sh                # Linux/macOS run script
 ├── frontend/
 │   ├── src/
 │   │   ├── components/   # Vue components
