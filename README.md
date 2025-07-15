@@ -35,6 +35,22 @@ This is a full-stack AI-powered technical interview platform. It allows users to
   - Node.js & npm (for frontend)
   - PowerShell/Bash scripts for setup
 
+## Interview Logic: NUM_SKILLS and USER_DIFFICULTY
+
+The interview process is controlled by two key constants in the backend (`app.py`):
+
+- **NUM_SKILLS**: Determines how many unique skills (extracted from the uploaded resume) the AI will ask questions about during the interview. For example, if `NUM_SKILLS = 3`, the AI will select 3 skills from the candidate's resume and conduct the interview on those topics.
+
+- **USER_DIFFICULTY**: A list that defines the number and difficulty of questions to be asked for each selected skill. Each entry in the list represents a difficulty level (e.g., `["Easy", "Medium", "Hard"]` means the AI will ask 3 questions per skill, one at each difficulty level). The length of this list determines how many questions are asked per skill.
+
+**Example:**
+
+If `NUM_SKILLS = 2` and `USER_DIFFICULTY = ["Medium", "Hard"]`, the AI will select 2 skills from the resume and ask 2 questions for each skill (one Medium, one Hard), for a total of 4 questions.
+
+You can adjust these constants in `app.py` to customize the interview depth and breadth.
+
+---
+
 ## How to Build and Run
 
 ### 1. Prerequisites
