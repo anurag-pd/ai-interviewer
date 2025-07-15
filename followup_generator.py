@@ -3,7 +3,7 @@
 import groq
 
 # Create a Groq client (API key is automatically read from env var GROQ_API_KEY)
-client = groq.Groq(api_key='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')
+client = groq.Groq(api_key='your-groq-api-key')
 
 def generate_followup(user_response: str, difficulty: str = "medium") -> str:
     prompt = f"""You are a helpful AI technical interviewer.
