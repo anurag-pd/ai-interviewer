@@ -173,8 +173,6 @@ h1 {
   background: #f9f9ff;
   padding: 1.1rem;
   border-radius: 10px;
-  min-height: 180px;
-  max-height: 320px;
   overflow-y: auto;
   font-size: 1.05rem;
   border: 1px solid #ececff;

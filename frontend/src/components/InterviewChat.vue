@@ -1,6 +1,6 @@
 <template>
   <div class="chat">
-    <div class="chat-messages">
+    <div class="chat-messages" ref="messagesContainer">
       <div
         v-for="(msg, idx) in store.chatHistory"
         :key="idx"
@@ -24,15 +24,28 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, onMounted, nextTick } from "vue";
 import { useInterviewStore } from "../stores/interviewStore";
+
 const store = useInterviewStore();
 const inputValue = ref(store.userInput);
+const messagesContainer = ref(null);
 
 watch(
   () => store.userInput,
   (val) => {
     inputValue.value = val;
+  }
+);
+
+// Auto-scroll to bottom when chatHistory changes
+watch(
+  () => store.chatHistory.length,
+  async () => {
+    await nextTick();
+    if (messagesContainer.value) {
+      messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight;
+    }
   }
 );
 
@@ -46,9 +59,6 @@ function onSend() {
   background: #f9f9ff;
   padding: 1.1rem;
   border-radius: 10px;
-  min-height: 60vh;
-  max-height: 80vh;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   font-size: 1.05rem;
